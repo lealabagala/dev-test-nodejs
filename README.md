@@ -29,3 +29,63 @@ Feel free to use the internet including Google and Stackoverflow to help with th
 Please just ask.
 
 Good luck and thanks for taking the time to complete this task!
+
+## Starting the App
+
+1. Rename `.env.example` to `.env`, and update the values accordingly.
+2. Make sure Redis is running locally by running `redis-server`.
+3. Run `npm run seed` to populate data into redis server.
+3. Run `npm start`.
+
+## Endpoints
+
+### `GET` /countries
+
+Returns the list of countries sorted by their population (ascending).
+
+Response:
+
+```json
+{
+  "data": [
+    {
+      "name": "AFGHANISTAN",
+      "code": "afg",
+      "population": 123456
+    },
+    {
+      "name": "ALBANIA",
+      "code": "alb",
+      "population": 123457
+    }
+  ]
+}
+```
+
+### `PUT` /countries/:code
+
+Updates the country object given the country code.
+
+Body:
+
+```json
+{
+  "population": 123456
+}
+```
+
+Response:
+
+```json
+200
+```
+
+### `DELETE` /countries/:code
+
+Deletes the country object given the country code.
+
+Response:
+
+```json
+200
+```
